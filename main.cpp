@@ -165,6 +165,8 @@ int main () {
     
     cout << "La operacion suma de x, el doble de y, todo mas el triple de z, dividido 6, da como resultado: " << operacion <<endl;
     */
+    // PRUEBA PARA VER SI ANDA TODO OKKKKKKKKKKKKKK
+    
 
   return 0;
 }
