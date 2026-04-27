@@ -107,12 +107,12 @@ int main () {
         break;
     }
     */
-    /*6.*/
+    /*6.
     int numero;
-
+    
     cout << "Ingrese un numero: ";
     cin  >> numero;
-
+    
     if (numero %2 == 0 && ((numero >=1 && numero <=25) || (numero >= 75 && numero <=100)))
     //  20      true                    true                        false
     //  64      true                   false                       false                        
@@ -123,6 +123,7 @@ int main () {
         cout << "El numero no es par, no está entre 1 y 25 o 75 y 100\n";
     }
     // segun chatgpt pude haber hecho un if para cada condicion, if es par, if esta entre 1 y 25 e if si esta entre 75 y 100, pero no podria haber usado OR.
-
+    */
+    
     return 0;
 }   
