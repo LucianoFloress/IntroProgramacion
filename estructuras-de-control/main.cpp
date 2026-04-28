@@ -124,6 +124,38 @@ int main () {
     }
     // segun chatgpt pude haber hecho un if para cada condicion, if es par, if esta entre 1 y 25 e if si esta entre 75 y 100, pero no podria haber usado OR.
     */
+    /*ejercicio autoevaluable*/
+    int dia;
+    int mes;
+    int anio;
+    int anios;
+
+    cout << "Ingrese su fecha de nacimiento" <<endl;
+    cout << "dia: ";
+    cin >> dia;
+    cout << "mes: ";
+    cin >> mes;
+    cout << "anio: ";
+    cin >> anio;
+
+    switch (mes)
+    {
+    case 1:
+        if ((dia >= 1 && dia <= 31) && (anio >= 1900 && anio <= 2026))
+        //          19                              1978
+        {
+            cout << "Naciste el " << dia << " del " << mes << " del " << anio << "\n";
+            int anio_nuevo = 2026-anio;
+            cout << "Tenes " << anio_nuevo << " anios";
+        }else{
+            cout << "Fecha invalida" <<endl;
+        }
+        break;
+    
+        
+    default:
+        break;
+    }
     
     return 0;
 }   
