@@ -129,7 +129,7 @@ int main () {
     int mes;
     int anio;
     int anios;
-
+    
     cout << "Ingrese su fecha de nacimiento" <<endl;
     cout << "dia: ";
     cin >> dia;
@@ -137,25 +137,38 @@ int main () {
     cin >> mes;
     cout << "anio: ";
     cin >> anio;
-
-    switch (mes)
-    {
-    case 1:
-        if ((dia >= 1 && dia <= 31) && (anio >= 1900 && anio <= 2026))
-        //          19                              1978
-        {
-            cout << "Naciste el " << dia << " del " << mes << " del " << anio << "\n";
-            int anio_nuevo = 2026-anio;
-            cout << "Tenes " << anio_nuevo << " anios";
-        }else{
-            cout << "Fecha invalida" <<endl;
-        }
-        break;
     
-        
-    default:
-        break;
+    int anio_nuevo = 2026-anio;
+    int anio_nuevo2 = 2025-anio;
+
+
+    if ((dia >= 1 && dia <= 31) && (mes == 1 || mes == 3 || mes == 5 || mes == 7 || mes == 8 || mes == 10 || mes == 12) && (anio >= 1900 && anio <= 2026))
+    {
+        cout << "Naciste el " << dia << " del " << mes << " del " << anio << "\n" ;
+        if (mes >= 1 && mes <= 4)
+        {
+            cout << "Tenes " << anio_nuevo << " anios \n";
+        }else
+        {
+            cout << "Tenes " << anio_nuevo2 << " anios \n";
+        }
+    }else{
+        cout << "Fecha invalida \n";
     }
     
+    if ((dia >= 1 && dia <= 30) && (mes == 2 || mes == 4 || mes == 6 || mes == 9 || mes == 11) && (anio >= 1900 && anio <= 2026))
+    {
+        cout << "Naciste el " << dia << " del " << mes << " del " << anio << "\n" ;
+        if (mes >= 1 && mes <= 4)
+        {
+            cout << "Tenes " << anio_nuevo << " anios \n";
+        }else
+        {
+            cout << "Tenes " << anio_nuevo2 << " anios \n";
+        }
+    }else{
+        cout << "Fecha invalida \n";
+    }
+
     return 0;
 }   
