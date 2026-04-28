@@ -124,11 +124,8 @@ int main () {
     }
     // segun chatgpt pude haber hecho un if para cada condicion, if es par, if esta entre 1 y 25 e if si esta entre 75 y 100, pero no podria haber usado OR.
     */
-    /*ejercicio autoevaluable*/
-    int dia;
-    int mes;
-    int anio;
-    int anios;
+    /*ejercicio autoevaluable
+    int dia, mes, anio, anios;
     
     cout << "Ingrese su fecha de nacimiento" <<endl;
     cout << "dia: ";
@@ -140,9 +137,9 @@ int main () {
     
     int anio_nuevo = 2026-anio;
     int anio_nuevo2 = 2025-anio;
-
-
-    if ((dia >= 1 && dia <= 31) && (mes == 1 || mes == 3 || mes == 5 || mes == 7 || mes == 8 || mes == 10 || mes == 12) && (anio >= 1900 && anio <= 2026))
+    
+    
+    if ((dia >= 1 && dia <= 28) && mes == 2 && (anio >= 1900 && anio <= 2026))
     {
         cout << "Naciste el " << dia << " del " << mes << " del " << anio << "\n" ;
         if (mes >= 1 && mes <= 4)
@@ -152,23 +149,73 @@ int main () {
         {
             cout << "Tenes " << anio_nuevo2 << " anios \n";
         }
-    }else{
-        cout << "Fecha invalida \n";
+    }else if ((dia >= 1 && dia <= 31) && (mes == 1 || mes == 3 || mes == 5 || mes == 7 || mes == 8 || mes == 10 || mes == 12) && (anio >= 1900 && anio <= 2026))  
+    {
+        cout << "Naciste el " << dia << " del " << mes << " del " << anio << "\n" ;
+        if (mes >= 1 && mes <= 4)
+        {
+            cout << "Tenes " << anio_nuevo << " anios \n";
+        }else
+        {
+            cout << "Tenes " << anio_nuevo2 << " anios \n";
+        }
+    }else if ((dia >= 1 && dia <= 30) && (mes == 4 || mes == 6 || mes == 9 || mes == 11) && (anio >= 1900 && anio <= 2026))  
+    {
+        cout << "Naciste el " << dia << " del " << mes << " del " << anio << "\n" ;
+        if (mes >= 1 && mes <= 4)
+        {
+            cout << "Tenes " << anio_nuevo << " anios \n";
+        }else
+        {
+            cout << "Tenes " << anio_nuevo2 << " anios \n";
+        }
+    }else
+    {
+        cout << "Fecha invalida" <<endl;
+    }
+    */
+    /*entrega
+    // anda pero tiene un bug, si hay empate muere..
+    int num1, num2, num3;
+    
+    cout << "ingrese tres numeros: \n";
+    cin >> num1;
+    cin >> num2;
+    cin >> num3;
+    
+    if ((num1 > num2) && (num1 > num3))
+    {
+        cout << num1 <<endl;
+    }else if ((num2 > num1) && (num2 > num3))
+    {
+        cout << num2 <<endl;
+    }else if ((num3 > num1) && (num3 > num2))
+    {
+        cout << num3 <<endl;
+    }
+    */
+    /*entrega pero con ayuda de chatgpt
+    int num1, num2, num3;
+    
+    // ingresar los 3 numeros por consola
+    cin >> num1;
+    cin >> num2;
+    cin >> num3; 
+    
+    int mayor = num1;
+    
+    if (num2 > mayor)
+    {
+        mayor = num2;
+    }if (num3 > mayor)
+    {
+        mayor = num3;
     }
     
-    if ((dia >= 1 && dia <= 30) && (mes == 2 || mes == 4 || mes == 6 || mes == 9 || mes == 11) && (anio >= 1900 && anio <= 2026))
-    {
-        cout << "Naciste el " << dia << " del " << mes << " del " << anio << "\n" ;
-        if (mes >= 1 && mes <= 4)
-        {
-            cout << "Tenes " << anio_nuevo << " anios \n";
-        }else
-        {
-            cout << "Tenes " << anio_nuevo2 << " anios \n";
-        }
-    }else{
-        cout << "Fecha invalida \n";
-    }
+    cout << mayor <<endl;    
+    */
+    /*ejercicios de chatgpt*/
+    
 
     return 0;
-}   
+}
