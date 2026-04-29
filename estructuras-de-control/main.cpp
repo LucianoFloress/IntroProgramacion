@@ -214,8 +214,143 @@ int main () {
     
     cout << mayor <<endl;    
     */
-    /*ejercicios de chatgpt*/
+    //ejercicios de chatgpt
+    /*
+    int num1, num2, num3;
     
+    cin >> num1;
+    cin >> num2;
+    cin >> num3;
+    
+    int mayor = num1;
+    
+    if (num2 > num1)
+    {
+        mayor = num2;
+    }
+    if (num3 > mayor)
+    {
+        mayor = num3;
+    }
+    if (num1 == num2 || num1 == num3 || num2 == num3)
+    {
+        cout << "Empate" << endl;
+    }else{
+        cout << "El mayor es: " << mayor << endl;
+    }
+    */
+    /*
+    int num;
+    
+    cout << "ingresa un numero ";
+    cin >> num;
+    
+    if (num == 0)
+    {
+        cout << "ingresaste el numero 0 \n"; 
+    }else if (num %2 != 0)
+    {
+        cout << "es un numero impar \n";
+    }else
+    {
+        cout << "es un numero par \n";
+    }
+    */
+    /*
+    int num1, num2;
+    char op;
+    cout << "ingresar un numero, la operacion, y el otro numero" << "\n";
+    
+    cin >> num1;
+    cin >> op;
+    cin >> num2;
+    int operacion;
+    
+    switch (op)
+    {
+        case '+':
+        operacion = num1 + num2;
+        cout << num1 << "+" << num2 << " = " << operacion << "\n";
+        break;
+        case '-':
+        operacion = num1 - num2;
+        cout << num1 << "-" << num2 << " = " << operacion << "\n";
+        break;
+        case '*':
+        operacion = num1 * num2;
+        cout << num1 << "*" << num2 << " = " << operacion << "\n";
+        break;
+        case '/':
+        if (num2 != 0)
+        {
+            operacion = num1 / num2;
+            cout << num1 << "/" << num2 << " = " << operacion << "\n";
+        }else
+        {
+            cout << "no se puede dividir por 0" << "\n";
+        }
+        break;
+        default:
+            cout << "error" << "\n";
+        break;
+    }
+    */
+    /*
+    int anio;
+    
+    cout << "ingrese el anio a evaluar si es bisiesto o no" << "\n";
+    cin >> anio;
+    
+    if (anio %400 == 0)
+    {
+        cout << "bisiesto 400" << "\n";
+    }else if (anio %100 == 0)
+    {
+        cout << "no bisiesto1" << "\n";
+    }else if (anio %4 == 0)
+    {
+        cout << "bisiesto 4" << "\n";
+    }else{
+        cout << "no bisiesto2" << "\n";
+    }
+    */
+    /**/
+
+    int num1, num2, num3;
+
+    cout << "ingrese 3 numeros " << "\n";
+    cin >> num1;
+    cin >> num2;
+    cin >> num3;
+
+    int mayor;
+    int menor = num1;
+    int medio = num1;
+
+    // sacar mayor
+    if (num2 > num1)
+    {
+        mayor = num2;
+    }
+    if (num3 > mayor)
+    {
+        mayor = num3;
+    }
+    
+    // sacar menor y medio
+    if (num1 < num2 && num3)
+    {
+        menor = num1;
+    }
+    if (num2 < num1 && num3)
+    {
+        menor = num2;
+    }else{
+        menor = num3;
+    
+    cout << "mayor" << mayor << "\n";
+    cout << "medio" << medio << "\n";
+    cout << "menor" << menor << "\n";
 
     return 0;
 }
