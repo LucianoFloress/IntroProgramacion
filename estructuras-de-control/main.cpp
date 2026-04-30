@@ -392,8 +392,29 @@ int main () {
         break;
     }
     */
-
-        
-
+    /*
+    int lado1, lado2, lado3;
+    
+    cout << "ingrese tres numeros que representen los lados de un triangulo " << "\n";
+    cin >> lado1;
+    cin >> lado2;
+    cin >> lado3;
+    
+    if ((lado1 < lado2 + lado3) && (lado2 < lado1 + lado3) && (lado3 < lado1 + lado2))
+    {
+        if (lado1 == lado2 && lado1 == lado3)
+        {
+            cout << "triangulo equilatero" << "\n";
+        }else if ((lado1 == lado2 && lado1 != lado3) || (lado2 == lado3 && lado3 != lado1) || (lado1 == lado3 && lado3 != lado2)) // segun chatgpt, con validar por ej: lado1==lado3 ya alcanza pq eliminé arriba con la validacion del equilatero
+        {
+            cout << "triangulo isosceles" << "\n";
+        }else{
+            cout << "triangulo escaleno" << "\n";
+        }
+    }else{
+        cout << "no es un triangulo" << "\n";
+    }
+    */
+    
     return 0;
 }
