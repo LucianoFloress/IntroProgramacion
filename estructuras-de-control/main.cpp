@@ -2,6 +2,7 @@
 #include <string>
 #include <ctime>
 #include <cstdlib>
+#include <cctype>
 
 
 using namespace std;
@@ -363,22 +364,36 @@ int main () {
     cout << "medio " << medio << "\n";
     cout << "menor " << menor << "\n";
     */
-    /**/
-    int precio;
+    /*
+    double precio;
     char cliente;
-
+    double descuento = 0;
+    double precio_final;
+    
     cout << "Ingrese el precio y luego el tipo de cliente \n";
-    cin >> precio, cliente;
-
+    cin >> precio;
+    cin >> cliente;
+    cliente = toupper(cliente);
+    
     switch (cliente)
     {
-    case 'A':
-        cout << "Para clientes " precio * 0.20;
+        case 'A':
+        descuento = 0.2;
+        precio_final = precio - (precio * descuento);
+        cout << "Para clientes 'A' hay un 20% off " << "$" << precio << " queda -> " << "$" << precio_final;
         break;
-    
-    default:
+        case 'B':
+        descuento = 0.1;
+        precio_final = precio - (precio * descuento);
+        cout << "Para clientes 'B' hay un 10% off " << "$" << precio << " queda -> " << "$" << precio_final;
+        break;
+        default:
+        cout << "Para los demás clientes o no clientes no disponemos de descuentos " << "$" << precio;
         break;
     }
+    */
+
+        
 
     return 0;
 }
