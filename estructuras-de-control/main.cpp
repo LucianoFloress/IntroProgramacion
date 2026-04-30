@@ -314,43 +314,71 @@ int main () {
         cout << "no bisiesto2" << "\n";
     }
     */
-    /**/
-
+    /*
     int num1, num2, num3;
-
+    
     cout << "ingrese 3 numeros " << "\n";
     cin >> num1;
     cin >> num2;
     cin >> num3;
-
-    int mayor;
-    int menor = num1;
-    int medio = num1;
-
-    // sacar mayor
-    if (num2 > num1)
-    {
-        mayor = num2;
-    }
-    if (num3 > mayor)
-    {
-        mayor = num3;
-    }
     
-    // sacar menor y medio
-    if (num1 < num2 && num3)
+    int mayor = num1;
+    int menor = num1;
+    int medio;
+    
+    // sacar mayor
+    if (num2 > mayor)
     {
-        menor = num1;
+        mayor = num2; 
     }
-    if (num2 < num1 && num3)
+    if (num3 > mayor) 
+    {
+        mayor = num3;  
+    }     
+    
+    // sacar menor
+    if (num2 < menor)
     {
         menor = num2;
-    }else{
+    }
+    if (num3 < menor)
+    {
         menor = num3;
+    }
     
-    cout << "mayor" << mayor << "\n";
-    cout << "medio" << medio << "\n";
-    cout << "menor" << menor << "\n";
+    // sacar medio
+    if (num1 != mayor && num1 != menor)
+    {
+        medio = num1;
+    }
+    else if (num2 != mayor && num2 != menor)
+    {
+        medio = num2;
+    }
+    else{
+        medio = num3;
+    }
+    
+    cout << "mayor " << mayor << "\n";
+    cout << "medio " << medio << "\n";
+    cout << "menor " << menor << "\n";
+    */
+    /**/
+    int precio;
+    char cliente;
+
+    cout << "Ingrese el precio y luego el tipo de cliente \n";
+    cin >> precio, cliente;
+
+    switch (cliente)
+    {
+    case 'A':
+        cout << "Para clientes " precio * 0.20;
+        break;
+    
+    default:
+        break;
+    }
 
     return 0;
 }
