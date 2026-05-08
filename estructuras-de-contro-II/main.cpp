@@ -143,9 +143,10 @@ int main (int argc, char *argv[]) {
 		}
 	}
     */
-    /*6.*/
+    /*6.
+    int contador = 0;
+    string nombre;
 
-    
     while(true){
 		
 		if(kbhit()) { 
@@ -153,17 +154,32 @@ int main (int argc, char *argv[]) {
             
 			switch(tecla)
 			{
-            case 'a': case 'b': case 'c': case 'd': case 'e': case 'f': case 'g': 
-            case 'h': case 'i': case 'j': case 'k': case 'l': case 'm': case 'n': 
-            case 'o': case 'p': case 'q': case 'r': case 's': case 't': case 'u': 
-            case 'v': case 'w': case 'x': case 'y': case 'z': 
-				cout<<"Letra: "<<(char)tecla <<endl;
-				break;
-			case 13:
-				return 1;
+                case 'a': case 'b': case 'c': case 'd': case 'e': case 'f': case 'g': 
+                case 'h': case 'i': case 'j': case 'k': case 'l': case 'm': case 'n': 
+                case 'o': case 'p': case 'q': case 'r': case 's': case 't': case 'u': 
+                case 'v': case 'w': case 'x': case 'y': case 'z': 
+                if (tecla)
+                {
+                    nombre += tecla;
+                    contador++;
+                }
+                    cout<<"Letra: "<<(char)tecla <<endl;              
+				    break;
+			    case 13:
+                    cout << nombre << ", " << contador;
+				    return 1;
 			}
 		}
 	}
+    */
+    /*7.*/
+    for (int i = 1; i < 11; i++)
+    {
+        srand(time(NULL));
+        int numero_al_azar = rand() % 6 + 1;
+        cout << numero_al_azar << endl;
+    }
+    
 
     return 0;
 }
