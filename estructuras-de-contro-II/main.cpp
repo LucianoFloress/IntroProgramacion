@@ -181,25 +181,29 @@ int main (int argc, char *argv[]) {
     }
     */
     /*8.*/
-    int contador = 0;
     int actual, anterior;
-    
-    cout << "Ingrese 3 numeros consecutivos " << "\n" ;
-    cin >> actual;
 
-    while(contador == 3)
+    cout << "ingrese un numero " << "\n";
+    cin >> anterior;
+
+    int contador = 1;
+
+    while (contador < 3)
     {
-        cout << "Ingrese 3 numeros consecutivos " << "\n" ;
+        cout << "ingrese otro numero " << "\n";
         cin >> actual;
 
-        if (actual == anterior)
+        if (anterior == actual)
         {
             contador++;
         }else{
             contador = 1;
         }
+
         anterior = actual;
     }
+    
+    cout << actual << actual << actual ;
     
     return 0;
 }
