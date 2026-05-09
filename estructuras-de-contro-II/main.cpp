@@ -172,14 +172,34 @@ int main (int argc, char *argv[]) {
 		}
 	}
     */
-    /*7.*/
-    for (int i = 1; i < 11; i++)
+    /*7.
+    srand(time(NULL));
+    
+    for (int i = 0; i < 10; i++)
     {
-        srand(time(NULL));
-        int numero_al_azar = rand() % 6 + 1;
-        cout << numero_al_azar << endl;
+        cout << rand() % 6 + 1 << endl;
+    }
+    */
+    /*8.*/
+    int contador = 0;
+    int actual, anterior;
+    
+    cout << "Ingrese 3 numeros consecutivos " << "\n" ;
+    cin >> actual;
+
+    while(contador == 3)
+    {
+        cout << "Ingrese 3 numeros consecutivos " << "\n" ;
+        cin >> actual;
+
+        if (actual == anterior)
+        {
+            contador++;
+        }else{
+            contador = 1;
+        }
+        anterior = actual;
     }
     
-
     return 0;
 }
