@@ -180,9 +180,10 @@ int main (int argc, char *argv[]) {
         cout << rand() % 6 + 1 << endl;
     }
     */
-    /*8.*/
+    /*8.
+    // En este ejercicio, tuve que iniciar un valor (anterior) para que al entrar al while no se buguee el codigo, de forma que primero, pido un numero, lo guardo, y, una vez, que el programa entra al while, ya tengo un valor de antes, y lo puedo comparar, con otro valor, solicitado dentro del while.
     int actual, anterior;
-
+    
     cout << "ingrese un numero " << "\n";
     cin >> anterior;
 
@@ -204,6 +205,37 @@ int main (int argc, char *argv[]) {
     }
     
     cout << actual << actual << actual ;
-    
+    */
+   /*9.*/
+   int contador =  1;
+   int num;
+
+   srand(time(NULL));
+   int numero_azar = rand() % 20 + 1;
+   cout << numero_azar << "\n";
+
+   cout << "ingrese un numero, entre 1 y 20, para adviniar el numero al azar " << "\n";
+   cin >> num;    
+
+   while (contador < 5)
+   {
+        if (num == numero_azar)
+        {
+            cout << "muy bien! adivinaste!" << "\n";
+            //contador += 4;
+            return 1;
+        }else if (num > numero_azar)
+        {
+            cout << "el numero ingresado es mayor que el aleatorio" << "\n";
+            contador++;
+        }else{
+            cout << "el numero ingresado es menor que el aleatorio" << "\n";
+            contador++;
+        }        
+            cout << "ingrese otro numero para adivinar" << "\n";
+            cin >> num;
+    }
+        cout << "perdiste" << "\n";
+
     return 0;
 }
