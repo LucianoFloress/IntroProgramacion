@@ -209,13 +209,13 @@ int main(int argc, char *argv[])
     /*9.
     int contador = 1;
     int num;
-    
+
     srand(time(NULL));
     int numero_azar = rand() % 20 + 1;
-    
+
     cout << "ingrese un numero, entre 1 y 20, para adviniar el numero al azar " << "\n";
     cin >> num;
-    
+
     while (contador < 5)
     {
         if (num == numero_azar)
@@ -245,28 +245,68 @@ int main(int argc, char *argv[])
         cout << "perdiste, el numero era " << numero_azar << "\n";
     }
     */
-    /*10.*/
+    /*10.
     srand(time(NULL));
     int numero_azar = rand() % 20 + 1;
-    cout << numero_azar << "\n";
-    int num;
-
+    int num_anterior, num_actual;
+    int contador = 1;
+    
     cout << "ingrese el numero a advinar" << "\n";
-    cin >> num;
-
-    while (num != numero_azar)
+    cin >> num_anterior;
+    
+    if (contador == 1)
     {
-        if (num < numero_azar)
+        if (num_anterior == numero_azar)
         {
-            cout << "el numero ingresado es menor" << "\n";
-        }else if (num > numero_azar)
+            cout << "adivinaste a la primera chaval :D" << "\n";
+            return 0;
+        }
+        else if (num_anterior > numero_azar)
         {
-            cout << "el numero ingresado es mayor" << "\n";
+            cout << "el numero ingresado es mayor que el random" << "\n";
+        }
+        else
+        {
+            cout << "el numero ingresado es menor que el random" << "\n";
+        }
+    }
+    while (contador < 5)
+    {
+        cout << "con la informacion proporcionada, ingrese otro numero " << "\n";
+        cin >> num_actual;
+        
+        if (num_actual == numero_azar)
+        {
+            cout << "adivinaste chaval :D" << "\n";
+            return 0;
+        }
+        else if (num_actual > num_anterior && num_actual < numero_azar)
+        {
+            cout << "caliente" << "\n";
+        }
+        else if (num_actual < num_anterior && num_actual > numero_azar)
+        {
+            cout << "caliente" << "\n";
+        }
+        else if (num_actual > num_anterior && num_actual > numero_azar && (num_actual - numero_azar) < (numero_azar - num_anterior))
+        {
+            cout << "caliente" << "\n";
+        }
+        else if (num_actual < num_anterior && num_actual < numero_azar && (numero_azar - num_actual) < (num_anterior - numero_azar))
+        {
+            cout << "caliente" << "\n";
+        }
+        else
+        {
+            cout << "frio" << "\n";
         }
         
-        
+        contador++;
+        num_anterior = num_actual;
     }
-    cout << "adivinaste!" << "\n";
+    
+    cout << "perdiste, el numero era " << numero_azar << "\n";
+    */
     
     return 1;
 }
