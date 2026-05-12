@@ -307,6 +307,18 @@ int main(int argc, char *argv[])
     
     cout << "perdiste, el numero era " << numero_azar << "\n";
     */
+    /*laboratior*/
     
+    int valorReferencia, n;
+
+    cin >> valorReferencia; // desde donde arranca
+    cin >> n; // cuantas veces
+
+    for (int i = valorReferencia; i += n ; i++)
+    {
+        cout << i << " " << "\n";
+    }   
+    
+
     return 1;
 }
