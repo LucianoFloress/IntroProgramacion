@@ -250,10 +250,10 @@ int main(int argc, char *argv[])
     int numero_azar = rand() % 20 + 1;
     int num_anterior, num_actual;
     int contador = 1;
-    
+
     cout << "ingrese el numero a advinar" << "\n";
     cin >> num_anterior;
-    
+
     if (contador == 1)
     {
         if (num_anterior == numero_azar)
@@ -274,7 +274,7 @@ int main(int argc, char *argv[])
     {
         cout << "con la informacion proporcionada, ingrese otro numero " << "\n";
         cin >> num_actual;
-        
+
         if (num_actual == numero_azar)
         {
             cout << "adivinaste chaval :D" << "\n";
@@ -300,25 +300,152 @@ int main(int argc, char *argv[])
         {
             cout << "frio" << "\n";
         }
-        
+
         contador++;
         num_anterior = num_actual;
     }
-    
+
     cout << "perdiste, el numero era " << numero_azar << "\n";
     */
-    /*laboratior*/
-    
+    /*laboratior
+
     int valorReferencia, n;
 
-    cin >> valorReferencia; // desde donde arranca
-    cin >> n; // cuantas veces
+    cin >> valorReferencia;
+    cin >> n;
 
-    for (int i = valorReferencia; i += n ; i++)
+    for (int i = valorReferencia; i < (valorReferencia + n); i++)
     {
-        cout << i << " " << "\n";
-    }   
-    
+        cout << i << "\n";
+    }
+    */
+    /*practicas de claude*/
+    /*
+    for (int i = 1; i < 101; i++)
+    {
+        if (i %3 == 0 && i %5 == 0)
+        {
+            cout << i << " FizzBuzz" << "\n";
+        }
+        else if (i %5 == 0 && i %7 == 0)
+        {
+            cout << i << " BuzzBazz" << "\n";
+        }
+        else if (i %3 == 0 && i %7 == 0)
+        {
+            cout << i << " FizzBazz" << "\n";
+        }
+        else if (i %3 == 0)
+        {
+            cout << i << " Fizz" << "\n";
+        }
+        else if (i %5 == 0)
+        {
+            cout << i << " Buzz" << "\n";
+        }
+        else if (i %7 == 0)
+        {
+            cout << i << " Bazz" << "\n";
+        }else{
+            cout << i << "\n";
+        }
+    }
+    */
+    /*
+    int contador = 1;
+    int num;
+    srand(time(NULL));
+    int numero_azar = rand() % 100 + 1;
+    cout << numero_azar << "\n";
+    cout << "numero: " << "\n";
+    cin >> num;
 
-    return 1;
+    while (contador <= 7)
+    {
+        if (num == numero_azar && contador == 1)
+        {
+            cout << "Demonios, adivinaste a la primera" << "\n";
+            return 0;
+        }
+        else if (num == numero_azar)
+        {
+            cout << "adivinaste usando un total de: " << contador << " intentos \n";
+            return 0;
+        }
+        else if (num > numero_azar)
+        {
+            cout << "es mayor" << "\n";
+            contador++;
+        }
+        else
+        {
+            cout << "es menor" << "\n";
+            contador++;
+        }
+        cout << "proba otro num " << "\n";
+        cin >> num;
+
+        if (contador > 7)
+        {
+            cout << "perdiste bro, el numero era " << numero_azar << "\n";
+        }
+    }
+    */
+    /*
+    char operacion;
+    int num1, num2;
+
+    cout << "ingrese la operacion a realizar: " << "\n";
+    cin >> operacion;
+
+    while (operacion != 's')
+    {
+        cout << "ahora ingrese los numeros a operar" << "\n";
+        cin >> num1;
+        cout << operacion << "\n";
+        cin >> num2;
+
+        switch (operacion)
+        {
+        case '+':
+            cout << num1 + num2 << "\n";
+            break;
+        case '-':
+            cout << num1 - num2 << "\n";
+            break;
+        case '/':
+            if (num2 != 0)
+            {
+                cout << num1 / num2 << "\n";
+            }
+            else
+            {
+                cout << "no se puede dividir por 0!" << "\n";
+            }
+            break;
+        case '*':
+            cout << num1 * num2 << "\n";
+            break;
+        case '^':
+        {
+            int resultado = 1;
+            for (int i = 1; i <= num2; i++)
+            {
+                resultado = resultado * num1;
+            }
+            cout << resultado << "\n";
+            break;
+        }
+        default:
+            cout << "Operacion incorrecta" << "\n";
+            break;
+        }
+        cout << "ingrese la operacion a realizar o 's' para salir " << "\n";
+        cin >> operacion;
+    }
+    cout << "saliendo..." << "\n";
+    */
+    /*piramide*/
+
+    return 0;
 }

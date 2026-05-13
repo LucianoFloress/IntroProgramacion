@@ -1,0 +1,19 @@
+#include <iostream>   // cout, cin, endl. Entrada y salida por consola.
+
+#include <string>     // usar strings (texto).
+
+#include <ctime>      // funciones relacionadas al tiempo.
+                      // por ejemplo time(NULL) para srand.
+
+#include <cstdlib>    // funciones generales.
+                      // rand(), srand(), system("cls"), etc.
+
+#include <cctype>     // funciones para manipular caracteres.
+                      // toupper(), tolower(), isdigit(), etc.
+
+#include <conio.h>    // getch(), kbhit().
+                      // leer teclas sin apretar ENTER.
+                      // vieja escuela DOS/Windows 👴💀
+
+#include <windows.h>  // funciones específicas de Windows.
+                      // Sleep(), colores de consola, sonidos, etc.
