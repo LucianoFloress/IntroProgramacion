@@ -445,7 +445,24 @@ int main(int argc, char *argv[])
     }
     cout << "saliendo..." << "\n";
     */
-    /*piramide*/
+    /*piramide
+    int num;
+    cin >> num;
+
+    for (int f = 1; f <= num; f++) // filas. arranca en 1 (porque sino la primer linea arranca vacia) hace filas, hasta que 'f' sea menor o igual que 'num' e imprime un "\n" cada vez que hace un ciclo.
+    {
+        for (int e = 1; e <= num - f; e++) // espacios. arranca en 1 porque si no cuenta la vuelta 0 y le agrega un espacio mas, a la vista no pasa nada, pero a la hora de calcular si, no es lo mismo pedir 3 y contar 012 que pedir 3 y contar 123.
+        {
+            cout << " ";
+        }
+        for (int a = 1; a <= ((2 * f) - 1); a++) // asteriscos. arranca en 1 pq si no la piramide iria de 2 en 2, en vez de ser puntiaguda (1 asterisco), imprime 2 asteriscos hasta que el numero de asteriscos por fila sea igual a la fila, pero x2 y -1 para que sea impar. (si son 3 filas, es 3x2 - 1, 6-5)
+        {
+            cout << "*";
+        }
+        cout << "\n";
+    }
+    */
+    
 
     return 0;
 }
