@@ -462,7 +462,49 @@ int main(int argc, char *argv[])
         cout << "\n";
     }
     */
-    
+    /*claude*/
+    /*
+    int num;
+    int resultado = 0;
+
+    cout << "ingrese el numero para ver su tabla " << "\n";
+    cin >> num;
+
+    while (num != 0)
+    {
+        for (int i = 1; i <= 10; i++)
+        {
+            resultado = num * i;
+            cout << num << " x " << i << " : " << resultado << "\n";
+        }
+        cout << "para ver otra tabla ingrese el numero o '0' para salir" << "\n";
+        cin >> num;
+    }
+
+    cout << "saliendo..." << "\n";
+    */
+    int num;
+    bool es_primo = true;
+
+    cout << "Ingrese un num: ";
+    cin >> num;
+    // primo -> por 1 y por numero
+
+    for (int i = 2; i <= num - 1; i++)
+    {
+        if (num % i == 0)
+        {
+            es_primo = false;
+        }
+    }
+    if (es_primo == true)
+    {
+        cout << "es primo" << "\n";
+    }
+    else
+    {
+        cout << "No es primo" << "\n";
+    }
 
     return 0;
 }
