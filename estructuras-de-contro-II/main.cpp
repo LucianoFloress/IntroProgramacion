@@ -483,6 +483,7 @@ int main(int argc, char *argv[])
 
     cout << "saliendo..." << "\n";
     */
+    /*
     int num;
     bool es_primo = true;
 
@@ -505,6 +506,77 @@ int main(int argc, char *argv[])
     {
         cout << "No es primo" << "\n";
     }
+    */
+    /*
+    int num;
+    cin >> num;
+
+    for (int f = 1; f <= num; f++)
+    {
+        for (int e = 1; e <= num - f; e++)
+        {
+            cout << " ";
+        }
+        for (int a = 1; a <= ((2 * f) - 1); a++)
+        {
+            cout << f ;
+        }
+        cout << "\n";
+    }
+    */
+    /*
+    int num;
+    int acumulador = 0;
+
+    cout << "Ingrese un num: ";
+    cin >> num;
+    // 6 % 1 == 0 → sumás 1
+    // 6 % 2 == 0 → sumás 2
+    // 6 % 3 == 0 → sumás 3
+    // 6 % 4 != 0 → ignorás
+    // 6 % 5 != 0 → ignorás
+    for (int i = 1; i <= num - 1; i++)
+    {
+        if (num % i == 0)
+        {
+            acumulador += i;
+        }
+    }
+    if (acumulador == num)
+    {
+        cout << "perfecto" << "\n";
+    }
+    else
+    {
+        cout << "No es perfecto" << "\n";
+    }
+    */
+    int n, m, res1, res2 = 0;
+    
+
+    cout << "ingrese dos numeros separados por enter " << "\n";
+    cin >> n;
+    cin >> m;
+
+    while (n != 0 && m != 0)
+    {
+        for (int f = 1; f <= n; f++) // filas
+        {
+            for (int c = 1; c <= m; c++) // columnas
+            {
+                res1 = res1 * m;
+                cout << res1 << " " ;
+            }
+            res2 = res2 c* n ;
+            cout << res2 << " " ;
+            cout << "\n";
+        }
+        cout << "para ver otra tabla ingrese el numero o '0' para salir" << "\n";
+        cin >> n;
+        cin >> m;
+    }
+
+    cout << "saliendo..." << "\n";
 
     return 0;
 }
