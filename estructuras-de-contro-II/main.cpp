@@ -551,32 +551,35 @@ int main(int argc, char *argv[])
         cout << "No es perfecto" << "\n";
     }
     */
-    int n, m, res1, res2 = 0;
-    
+    /*
+    int n, m= 0;
 
     cout << "ingrese dos numeros separados por enter " << "\n";
     cin >> n;
     cin >> m;
 
-    while (n != 0 && m != 0)
+    for (int f = 1; f <= n; f++) // filas
     {
-        for (int f = 1; f <= n; f++) // filas
+        for (int c = 1; c <= m; c++) // columnas. esto repite hasta que c iguale a m, e imprime f (1) x c (1) inserta espacio " ", repite, f(1) x c (2) inserta espacio " ". una vez que c alcanza al valor ingresado m, sale del for.
         {
-            for (int c = 1; c <= m; c++) // columnas
-            {
-                res1 = res1 * m;
-                cout << res1 << " " ;
-            }
-            res2 = res2 c* n ;
-            cout << res2 << " " ;
-            cout << "\n";
+            cout << f * c << " "; // este for de filas, cuando termine el for de arriba, inserta un renglon, y f pasa a valer 2, entonces repite el for interior pero con f (2) x c (1) inserta espacio " ", etc...
         }
-        cout << "para ver otra tabla ingrese el numero o '0' para salir" << "\n";
-        cin >> n;
-        cin >> m;
+        cout << "\n";
     }
+    */
+    int num, final = 0;
+    
 
-    cout << "saliendo..." << "\n";
+    cout << "ingrese un numero " << "\n";
+    cin >> num;
+
+    for (int i = 1; i <= num; i++)
+    {
+        
+    }
+    
+    
+    
 
     return 0;
 }
