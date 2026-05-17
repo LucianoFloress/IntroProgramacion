@@ -567,19 +567,21 @@ int main(int argc, char *argv[])
         cout << "\n";
     }
     */
-    int num, final = 0;
+    /*
+    int num, resultado = 0;
     
-
     cout << "ingrese un numero " << "\n";
     cin >> num;
-
-    for (int i = 1; i <= num; i++)
+    
+    while (num != 0)
     {
-        
+        num = num / 10;
+        resultado++;
     }
+    cout << resultado << "\n";
+    */
     
-    
-    
+
 
     return 0;
 }
