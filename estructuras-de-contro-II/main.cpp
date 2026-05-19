@@ -580,7 +580,21 @@ int main(int argc, char *argv[])
     }
     cout << resultado << "\n";
     */
+    /*
+    int num, resultado = 0;
     
+    cout << "ingrese un numero" << "\n";
+    cin >> num;
+    
+    while (num != 0)
+    {
+        resultado = num % 10;
+        cout << resultado;
+        num = num / 10;  
+    }
+    */
+    
+
 
 
     return 0;
