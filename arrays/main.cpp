@@ -54,7 +54,18 @@ int main()
     }
     cout << "El mayor es: " << mayor << "\n";
     */
-    
+    /*ejercicio 3*/
+
+    int mi_array[100];
+    int mi_array_par[50];
+    int mi_array_impar[50];
+
+    for (int i = 1; i <= 100; i++)
+    {
+        mi_array[i] = i;
+        //cout << mi_array[i] << " ";
+        
+    }
 
     return 0;
 }
