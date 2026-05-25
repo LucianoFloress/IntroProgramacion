@@ -59,12 +59,21 @@ int main()
     int mi_array[100];
     int mi_array_par[50];
     int mi_array_impar[50];
+    int indice_par = 0;
+    int indice_impar = 0;
 
-    for (int i = 1; i <= 100; i++)
+    for (int i = 0; i < 100; i++)
     {
-        mi_array[i] = i;
+        mi_array[i] = i+1;
         //cout << mi_array[i] << " ";
         
+        if (mi_array[i] %2 == 0)
+        {
+            mi_array_par[indice_par] = mi_array[i];
+            indice_par++;
+        }
+        cout << mi_array_par << " ";
+
     }
 
     return 0;
