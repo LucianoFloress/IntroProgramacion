@@ -291,5 +291,68 @@ int main()
         cout << array3[i] << " ";
     }
     */
+    /*ejercicio autoevaluable*/
+    srand(time(NULL));
+
+    int mazo[4][10] = {{1, 2, 3, 4, 5, 6, 7, 10, 11, 12}, {1, 2, 3, 4, 5, 6, 7, 10, 11, 12}, {1, 2, 3, 4, 5, 6, 7, 10, 11, 12}, {1, 2, 3, 4, 5, 6, 7, 10, 11, 12}};
+
+    bool mazoDisponible[4][10] = {{true, true, true, true, true, true, true, true, true, true}, {true, true, true, true, true, true, true, true, true, true}, {true, true, true, true, true, true, true, true, true, true}, {true, true, true, true, true, true, true, true, true, true}};
+
+    double suma, validoValor;
+    int randomFila = rand() % 4;
+    int randomColumna = rand() % 10;
+
+    // aca preguntamos si arrancamos. pone que si pumba, tira primera carta.
+    // tengo que hacer otro if, que depende de si sale entre 1y7 suma vale 1, y si sale entre 10y12 vale 0.5.
+
+    if (mazoDisponible[randomFila][randomColumna])
+    {
+        validoValor = mazo[randomFila][randomColumna];
+        
+        if (validoValor == 1 || validoValor == 2 || validoValor == 3 || validoValor == 4 || validoValor == 5 || validoValor == 6 || validoValor == 7)
+        {
+            suma = 1;
+        }
+        else
+        {
+            suma = 0.5;
+        }
+        cout << validoValor << " " << "\n";
+        mazoDisponible[randomFila][randomColumna] = false;
+    }
+
+    // pasa la primer tirada y preguntamos si quiere seguir o no, en caso de no seguir mostramos y listo. en caso de seguir, hacemos otro if, donde sumamos, el valor viejo, con el valor de la nueva carta por ejemplo 'suma += 1 o 0.5' dependiendo de la carta que salga, que tambien se valida con el if 1y7 o 10y12.
+
+    // segundo turno
+    randomFila = rand() % 4;
+    randomColumna = rand() % 10;
+
+    if (mazoDisponible[randomFila][randomColumna])
+    {
+        validoValor = mazo[randomFila][randomColumna];
+        
+        if (validoValor == 1 || validoValor == 2 || validoValor == 3 || validoValor == 4 || validoValor == 5 || validoValor == 6 || validoValor == 7)
+        {
+            suma += 1;
+        }else{
+            suma += 0.5;
+        }
+        cout << validoValor << " " << "\n";
+        mazoDisponible[randomFila][randomColumna] = false;
+    }
+    
+    // en este punto ya automatizo si quiere seguir jugando o cortar. por ejemplo englobo todo con un while seguir == "otra" || while seguir != "no". Me falta la parte de validar que si me paso de 7.5 pierdo.
+    // while (seguir != "no")
+
+    // si seguir == "otra"
+    //     jugar
+
+    // sino
+    //     inválido
+
+    // pedir nuevamente seguir
+
+    cout << suma << "\n";
+
     return 0;
 }
