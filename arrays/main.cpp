@@ -292,6 +292,7 @@ int main()
     }
     */
     /*ejercicio autoevaluable*/
+    /*
     srand(time(NULL));
 
     int mazo[4][10] = {{1, 2, 3, 4, 5, 6, 7, 10, 11, 12}, {1, 2, 3, 4, 5, 6, 7, 10, 11, 12}, {1, 2, 3, 4, 5, 6, 7, 10, 11, 12}, {1, 2, 3, 4, 5, 6, 7, 10, 11, 12}};
@@ -448,6 +449,30 @@ int main()
     {
         cout << "los vemo" << "\n";
     }
+    */
+    /*ejercicio integrador*/
+    /*
+    int num, menor, mayor;
 
+    cin >> num;
+
+    menor = num;
+    mayor = num;
+
+    for (int i = 0; i < 9; i++)
+    {
+        cin >> num;
+
+        if (num > mayor)
+        {
+            mayor = num;
+        }
+        if (num < menor)
+        {
+            menor = num;
+        }
+    }
+    cout << menor << " " << mayor;
+    */
     return 0;
 }
