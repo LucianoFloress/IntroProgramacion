@@ -298,7 +298,10 @@ int main()
 
     bool mazoDisponible[4][10] = {{true, true, true, true, true, true, true, true, true, true}, {true, true, true, true, true, true, true, true, true, true}, {true, true, true, true, true, true, true, true, true, true}, {true, true, true, true, true, true, true, true, true, true}};
 
-    double suma, validoValor;
+    double suma = 0;
+    double validoValor = 0;
+    double sumaJ = 0;
+    double sumaIA = 0;
     int randomFila = rand() % 4;
     int randomColumna = rand() % 10;
     string seguir, arrancar;
@@ -314,10 +317,6 @@ int main()
             if (mazoDisponible[randomFila][randomColumna])
             {
                 validoValor = mazo[randomFila][randomColumna];
-
-                cout << "array n: " << randomFila << "\n";
-                cout << "valor n: " << randomColumna << "\n";
-                cout << "carta: " << mazo[randomFila][randomColumna] << "\n";
 
                 if (validoValor == 1 || validoValor == 2 || validoValor == 3 || validoValor == 4 || validoValor == 5 || validoValor == 6 || validoValor == 7)
                 {
@@ -359,54 +358,91 @@ int main()
 
         } while (seguir == "otra" && estado == false);
 
-        cout << "puntos: " << suma << "\n";
+        sumaJ = suma;
+
+        cout << "puntos: " << sumaJ << "\n\n";
 
         // parte de la ia
 
-        suma = 0;
-
-        while (mazoDisponible[randomFila][randomColumna] == false)
+        if (sumaJ > 7.5)
         {
-            randomFila = rand() % 4;
-            randomColumna = rand() % 10;
+            cout << "Gano la IA" << "\n";
         }
-
-        do
+        else
         {
-            if (mazoDisponible[randomFila][randomColumna])
+            cout << "Turno de la IA" << "\n";
+
+            suma = 0;
+            estado = false;
+
+            while (mazoDisponible[randomFila][randomColumna] == false)
             {
-                validoValor = mazo[randomFila][randomColumna];
-
-                cout << "array n: " << randomFila << "\n";
-                cout << "valor n: " << randomColumna << "\n";
-                cout << "carta: " << mazo[randomFila][randomColumna] << "\n";
-
-                if (validoValor == 1 || validoValor == 2 || validoValor == 3 || validoValor == 4 || validoValor == 5 || validoValor == 6 || validoValor == 7)
-                {
-                    suma += 1;
-                }
-                else
-                {
-                    suma += 0.5;
-                }
-
-                mazoDisponible[randomFila][randomColumna] = false;
+                randomFila = rand() % 4;
+                randomColumna = rand() % 10;
             }
-            cout << "puntos: " << suma << "\n";
 
-            if (suma < 7.5)
+            do
             {
-                // seguir
-            }else if (suma < 7.5 && suma > 6.5)
+                if (mazoDisponible[randomFila][randomColumna])
+                {
+                    validoValor = mazo[randomFila][randomColumna];
+
+                    if (validoValor == 1 || validoValor == 2 || validoValor == 3 || validoValor == 4 || validoValor == 5 || validoValor == 6 || validoValor == 7)
+                    {
+                        suma += 1;
+                    }
+                    else
+                    {
+                        suma += 0.5;
+                    }
+
+                    mazoDisponible[randomFila][randomColumna] = false;
+                }
+                cout << "puntos: " << suma << "\n";
+
+                if (suma < 7.5)
+                {
+                    cout << "La IA agarra otra carta" << "\n";
+
+                    randomFila = rand() % 4;
+                    randomColumna = rand() % 10;
+
+                    while (mazoDisponible[randomFila][randomColumna] == false)
+                    {
+                        randomFila = rand() % 4;
+                        randomColumna = rand() % 10;
+                    }
+                }
+                else if (suma == 7.5)
+                {
+                    cout << "La IA se planta" << "\n";
+                    estado = true;
+                }
+                else if (suma > 7.5)
+                {
+                    cout << "La IA pierde!" << "\n";
+                    estado = true;
+                }
+
+            } while (estado == false);
+
+            sumaIA = suma;
+
+            cout << "puntos: " << sumaIA << "\n\n";
+
+            if (sumaIA > sumaJ && sumaIA < 8)
             {
-                // seguir
-            }else{
-                // basta
+                cout << "Gano la IA" << "\n";
             }
-            
-            // repetir, hasta que suma suba..., hasta 7 o 7.5. en la condicion del while, que se auto loopee, ponerle algun temporizador como para que no se ejecute a la velocidad de la luz.
-            
-        }while(suma );
+            else if (sumaIA == sumaJ)
+            {
+                cout << "Empataron" << "\n";
+            }
+            else
+            {
+                cout << "Gano el jugador" << "\n";
+            }
+        }
     }
     else
     {
