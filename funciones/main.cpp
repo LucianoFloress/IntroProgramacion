@@ -514,3 +514,131 @@ int main()
 */
 
 // ejercicio 6
+/*
+#include <iostream>
+#include <string>
+using namespace std;
+
+string multiplo(int valor, int n)
+{
+    if (valor % n == 0)
+    {
+        return "si";
+    }
+    return "no";
+}
+
+int main()
+{
+    cout << multiplo(40, 5);
+
+    return 0;
+}
+*/
+
+// ejercicio 7
+/*
+#include <iostream>
+#include <string>
+using namespace std;
+
+int ocurrencias(int array[], int tamanio, int num)
+{
+    int contador = 0;
+    for (int i = 0; i < tamanio; i++)
+    {
+        if (array[i] == num)
+        {
+            contador++;
+        }
+    }
+    return contador;
+}
+
+int main()
+{
+    int array[] = {2, 5, 4, 7, 2, 1, 5, 2};
+
+    cout << ocurrencias(array, 8, 2);
+    return 0;
+}
+*/
+
+// ejercicio 8
+/*
+#include <iostream>
+#include <string>
+using namespace std;
+
+int ocurrencias(int array[], int tamanio, int num)
+{
+    int contador = 0;
+    for (int i = 0; i < tamanio; i++)
+    {
+        if (array[i] == num)
+        {
+            contador++;
+        }
+    }
+    return contador * num;
+}
+
+int main()
+{
+    int array[] = {2, 5, 4, 7, 2, 1, 5, 2};
+
+    cout << ocurrencias(array, 8, 2);
+    return 0;
+}
+*/
+
+// ejercicio 10
+#include <iostream>
+#include <string>
+using namespace std;
+
+void palabra(string p, int &a, int &e, int &i, int &o, int &u)
+{
+    for (int j = 0; j < p.length(); j++)
+    {
+        if (p[j] == 'a')
+        {
+            a++;
+        }
+        if (p[j] == 'e')
+        {
+            e++;
+        }
+        if (p[j] == 'i')
+        {
+            i++;
+        }
+        if (p[j] == 'o')
+        {
+            o++;
+        }
+        if (p[j] == 'u')
+        {
+            u++;
+        }
+    }
+}
+// funcion con int por referencia. le paso un string por parametro y por cada vocal aumento el contador ++. como es void no hace falta nada mas. En el main, declaro las variables pasado por parametro y referencia. Luego llamo a la funcion y le paso sus parametros, en este caso, la "palabra" y las variables. Luego las muestro a cada una con cout. Es como si en la funcion hace las cuentas, pero se habilita cuando llamo a la funcion en el main, si no no funciona. 
+int main()
+{
+    int a = 0;
+    int e = 0;
+    int i = 0;
+    int o = 0;
+    int u = 0;
+
+    palabra("esternocleidomastoideo", a, e, i, o, u);
+
+    cout << "a: " << a << "\n";
+    cout << "e: " << e << "\n";
+    cout << "i: " << i << "\n";
+    cout << "o: " << o << "\n";
+    cout << "u: " << u << "\n";
+
+    return 0;
+}
