@@ -593,6 +593,7 @@ int main()
 */
 
 // ejercicio 10
+/*
 #include <iostream>
 #include <string>
 using namespace std;
@@ -623,7 +624,7 @@ void palabra(string p, int &a, int &e, int &i, int &o, int &u)
         }
     }
 }
-// funcion con int por referencia. le paso un string por parametro y por cada vocal aumento el contador ++. como es void no hace falta nada mas. En el main, declaro las variables pasado por parametro y referencia. Luego llamo a la funcion y le paso sus parametros, en este caso, la "palabra" y las variables. Luego las muestro a cada una con cout. Es como si en la funcion hace las cuentas, pero se habilita cuando llamo a la funcion en el main, si no no funciona. 
+// funcion con int por referencia. le paso un string por parametro y por cada vocal aumento el contador ++. como es void no hace falta nada mas. En el main, declaro las variables pasado por parametro y referencia. Luego llamo a la funcion y le paso sus parametros, en este caso, la "palabra" y las variables. Luego las muestro a cada una con cout. Es como si en la funcion hace las cuentas, pero se habilita cuando llamo a la funcion en el main, si no no funciona.
 int main()
 {
     int a = 0;
@@ -642,3 +643,89 @@ int main()
 
     return 0;
 }
+*/
+
+// practicando ordenar un array
+/*
+#include <iostream>
+#include <string>
+using namespace std;
+
+void sort(int a[], int n)
+{
+    int i, j, min, temp;
+    for (i = 0; i < n - 1; i++)
+    {
+        min = i;
+        for (j = i + 1; j < n; j++)
+            if (a[j] < a[min])
+                min = j;
+        temp = a[i];
+        a[i] = a[min];
+        a[min] = temp;
+    }
+}
+
+int main()
+{
+    srand(time(NULL));
+
+    int numeros[20];
+    for (int i = 0; i < 20; i++)
+    {
+        numeros[i] = rand() % 20;
+    }
+
+    sort(numeros, 20);
+
+    for (int i = 0; i < 20; i++)
+    {
+        cout << numeros[i] << " ";
+    }
+
+    return 0;
+}
+*/
+
+// ejercicio integrador
+/*
+#include <iostream>
+#include <string>
+using namespace std;
+
+void sort(int a[], int n)
+{
+    int i, j, min, temp;
+    for (i = 0; i < n - 1; i++)
+    {
+        min = i;
+        for (j = i + 1; j < n; j++)
+            if (a[j] < a[min])
+                min = j;
+        temp = a[i];
+        a[i] = a[min];
+        a[min] = temp;
+    }
+}
+
+int main()
+{
+    srand(time(NULL));
+
+    int valores[5];
+
+    for (int i = 0; i < 5; i++)
+    {
+        cin >> valores[i];
+    }
+
+    sort(valores, 5);
+
+    for (int i = 0; i < 5; i++)
+    {
+        cout << valores[i] << " ";
+    }
+
+    return 0;
+}
+*/
