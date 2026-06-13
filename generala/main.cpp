@@ -12,13 +12,13 @@ el juego es una sola tirada. de ahi hay que mandar los valores que salen, a cada
 -una funcion que tire los dados.
 */
 
-void tirarDados(int dados[])
-{
-    for (int i = 0; i < 5; i++)
-    {
-        dados[i] = rand() % 6 + 1;
-    }
-}
+// void tirarDados(int dados[])
+// {
+//     for (int i = 0; i < 5; i++)
+//     {
+//         dados[i] = rand() % 6 + 1;
+//     }
+// }
 
 int todoAlX(int dados[], int x)
 {
@@ -33,21 +33,104 @@ int todoAlX(int dados[], int x)
     return suma;
 }
 
-if (dados[i] = i)
+void contarApariciones(int dados[], int cantidadApariciones[])
 {
-    cont[i]++;
+    for (int i = 0; i < 5; i++)
+    {
+        if (dados[i] == 1)
+        {
+            cantidadApariciones[0]++;
+        }
+        if (dados[i] == 2)
+        {
+            cantidadApariciones[1]++;
+        }
+        if (dados[i] == 3)
+        {
+            cantidadApariciones[2]++;
+        }
+        if (dados[i] == 4)
+        {
+            cantidadApariciones[3]++;
+        }
+        if (dados[i] == 5)
+        {
+            cantidadApariciones[4]++;
+        }
+        if (dados[i] == 6)
+        {
+            cantidadApariciones[5]++;
+        }
+    }
 }
 
+bool esFull(int cantidadApariciones[])
+{
+    bool hayDos = false;
+    bool hayTres = false;
+
+    for (int i = 0; i < 6; i++)
+    {
+        if (cantidadApariciones[i] == 3)
+        {
+            hayTres = true;
+        }
+        if (cantidadApariciones[i] == 2)
+        {
+            hayDos = true;
+        }
+    }
+    return hayTres && hayDos;
+}
+
+bool esPoker(int cantidadApariciones[])
+{
+    bool hayCuatro = false;
+
+    for (int i = 0; i < 6; i++)
+    {
+        if (cantidadApariciones[i] == 4)
+        {
+            return true;
+        }
+    }
+    return false;
+}
+
+bool esGenerala(int cantidadApariciones[])
+{
+
+    for (int i = 0; i < 6; i++)
+    {
+        if (cantidadApariciones[i] == 5)
+        {
+            return true;
+        }
+    }
+    return false;
+}
+
+bool esEscalera(int cantidadApariciones[])
+{
+    if ((cantidadApariciones[0] == 1 && cantidadApariciones[1] == 1 && cantidadApariciones[2] == 1 && cantidadApariciones[3] == 1 && cantidadApariciones[4] == 1 && cantidadApariciones[5] == 0) || (cantidadApariciones[0] == 0 && cantidadApariciones[1] == 1 && cantidadApariciones[2] == 1 && cantidadApariciones[3] == 1 && cantidadApariciones[4] == 1 && cantidadApariciones[5] == 1))
+    {
+        return true;
+    }
+    return false;
+}
 
 int main()
 {
     srand(time(NULL));
-    // dados 6 caras
-    int dados[5];
-    int cont[7] = {};
+
+    // dados de 6 caras
+    int dados[5] = {5, 4, 4, 5, 5};
+
+    // en este array, guardo cuantas veces se repite el numero de los dados.
+    int cantidadApariciones[6] = {0};
 
     // tiro los dados
-    tirarDados(dados);
+    // tirarDados(dados);
     for (int i = 0; i < 5; i++)
     {
         cout << dados[i] << " ";
@@ -55,15 +138,33 @@ int main()
     cout << "\n";
 
     // evalua todo al X
-    cout << "puntaje todo al 1: " << todoAlX(dados, 1) << "\n";
-    cout << "puntaje todo al 2: " << todoAlX(dados, 2) << "\n";
-    cout << "puntaje todo al 3: " << todoAlX(dados, 3) << "\n";
-    cout << "puntaje todo al 4: " << todoAlX(dados, 4) << "\n";
-    cout << "puntaje todo al 5: " << todoAlX(dados, 5) << "\n";
-    cout << "puntaje todo al 6: " << todoAlX(dados, 6) << "\n";
+    // cout << "puntaje todo al 1: " << todoAlX(dados, 1) << "\n";
+    // cout << "puntaje todo al 2: " << todoAlX(dados, 2) << "\n";
+    // cout << "puntaje todo al 3: " << todoAlX(dados, 3) << "\n";
+    // cout << "puntaje todo al 4: " << todoAlX(dados, 4) << "\n";
+    // cout << "puntaje todo al 5: " << todoAlX(dados, 5) << "\n";
+    // cout << "puntaje todo al 6: " << todoAlX(dados, 6) << "\n";
 
-    // evalua full
+    // funcion que cuenta las apariciones de los numeros de los dados.
+    contarApariciones(dados, cantidadApariciones);
+    // muestro cuantas veces salen los numeros
+    // for (int i = 0; i < 6; i++)
+    // {
+    //     cout << cantidadApariciones[i] << " ";
+    // }
+    // cout << "\n";
 
+    // funcion que evalua si hay full o no, y muestra.
+    cout << "es full? " << esFull(cantidadApariciones) << "\n";
+
+    // funcion que evalua si hay poker o no, y muestra.
+    cout << "es poker? " << esPoker(cantidadApariciones) << "\n";
+
+    // funcion que evalua si hay generala o no, y muestra.
+    cout << "es generala? " << esGenerala(cantidadApariciones) << "\n";
+
+    // funcion que evalua si hay escalera o no, y muestra.
+    cout << "es escalera? " << esEscalera(cantidadApariciones) << "\n";
 
     return 0;
 }
