@@ -12,13 +12,13 @@ el juego es una sola tirada. de ahi hay que mandar los valores que salen, a cada
 -una funcion que tire los dados.
 */
 
-// void tirarDados(int dados[])
-// {
-//     for (int i = 0; i < 5; i++)
-//     {
-//         dados[i] = rand() % 6 + 1;
-//     }
-// }
+void tirarDados(int dados[])
+{
+    for (int i = 0; i < 5; i++)
+    {
+        dados[i] = rand() % 6 + 1;
+    }
+}
 
 int todoAlX(int dados[], int x)
 {
@@ -122,49 +122,91 @@ bool esEscalera(int cantidadApariciones[])
 int main()
 {
     srand(time(NULL));
+    int puntos1, puntos2, puntos3, puntos4, puntos5, puntos6, puntosFull, puntosPoker, puntosEscalera, puntosGenerala;
+    int puntajeMax = 0;
+    string nombreJugadaMax;
 
-    // dados de 6 caras
-    int dados[5] = {5, 4, 4, 5, 5};
+    // 5 dados de 6 caras
+    int dados[5];
 
-    // en este array, guardo cuantas veces se repite el numero de los dados.
+    // en este array, guardo cuantas veces se repite algun numero de los dados.
     int cantidadApariciones[6] = {0};
 
     // tiro los dados
-    // tirarDados(dados);
+    tirarDados(dados);
+    cout << "Tirada jugador: \n";
     for (int i = 0; i < 5; i++)
     {
         cout << dados[i] << " ";
     }
     cout << "\n";
 
-    // evalua todo al X
-    // cout << "puntaje todo al 1: " << todoAlX(dados, 1) << "\n";
-    // cout << "puntaje todo al 2: " << todoAlX(dados, 2) << "\n";
-    // cout << "puntaje todo al 3: " << todoAlX(dados, 3) << "\n";
-    // cout << "puntaje todo al 4: " << todoAlX(dados, 4) << "\n";
-    // cout << "puntaje todo al 5: " << todoAlX(dados, 5) << "\n";
-    // cout << "puntaje todo al 6: " << todoAlX(dados, 6) << "\n";
+    // evalua todo al X y ya paso valor a la variable de puntos.
+    cout << "Todo al 1: " << todoAlX(dados, 1) << "\n";
+    puntos1 = todoAlX(dados, 1);
+    cout << "Todo al 2: " << todoAlX(dados, 2) << "\n";
+    puntos2 = todoAlX(dados, 2);
+    cout << "Todo al 3: " << todoAlX(dados, 3) << "\n";
+    puntos3 = todoAlX(dados, 3);
+    cout << "Todo al 4: " << todoAlX(dados, 4) << "\n";
+    puntos4 = todoAlX(dados, 4);
+    cout << "Todo al 5: " << todoAlX(dados, 5) << "\n";
+    puntos5 = todoAlX(dados, 5);
+    cout << "Todo al 6: " << todoAlX(dados, 6) << "\n";
+    puntos6 = todoAlX(dados, 6);
 
     // funcion que cuenta las apariciones de los numeros de los dados.
     contarApariciones(dados, cantidadApariciones);
-    // muestro cuantas veces salen los numeros
-    // for (int i = 0; i < 6; i++)
-    // {
-    //     cout << cantidadApariciones[i] << " ";
-    // }
-    // cout << "\n";
 
-    // funcion que evalua si hay full o no, y muestra.
-    cout << "es full? " << esFull(cantidadApariciones) << "\n";
+    if (esFull(cantidadApariciones))
+    {
+        puntosFull = 30;
+        if (puntosFull > puntajeMax)
+        {
+            puntajeMax = puntosFull;
+            nombreJugadaMax = "Full";
+        }
+    }
+    else
+    {
+        cout << "Full: 0" << "\n";
+    }
 
-    // funcion que evalua si hay poker o no, y muestra.
-    cout << "es poker? " << esPoker(cantidadApariciones) << "\n";
+    if (esPoker(cantidadApariciones))
+    {
+        puntosPoker = 40;
+        nombreJugadaMax = "Poker";
+        jugadaMax = true;
+        cout << "Poker: 40" << "\n";
+    }
+    else
+    {
+        cout << "Poker: 0" << "\n";
+    }
 
-    // funcion que evalua si hay generala o no, y muestra.
-    cout << "es generala? " << esGenerala(cantidadApariciones) << "\n";
+    if (esEscalera(cantidadApariciones))
+    {
+        puntosEscalera = 50;
+        nombreJugadaMax = "Escalera";
+        jugadaMax = true;
+        cout << "Escalera: 50" << "\n";
+    }
+    else
+    {
+        cout << "Escalera: 0" << "\n";
+    }
 
-    // funcion que evalua si hay escalera o no, y muestra.
-    cout << "es escalera? " << esEscalera(cantidadApariciones) << "\n";
+    if (esGenerala(cantidadApariciones))
+    {
+        puntosGenerala = 60;
+        nombreJugadaMax = "Generala";
+        jugadaMax = true;
+        cout << "Generala: 60" << "\n";
+    }
+    else
+    {
+        cout << "Generala: 0" << "\n";
+    }
 
     return 0;
 }
