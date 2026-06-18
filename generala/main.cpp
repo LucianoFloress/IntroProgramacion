@@ -122,14 +122,17 @@ bool esEscalera(int cantidadApariciones[])
 int main()
 {
     srand(time(NULL));
-    int puntos1, puntos2, puntos3, puntos4, puntos5, puntos6, puntosFull, puntosPoker, puntosEscalera, puntosGenerala;
+    // array para guardar el puntaje de Todo Al X
+    int puntos[6];
+
+    int puntosFull, puntosPoker, puntosEscalera, puntosGenerala;
     int puntajeMax = 0;
     string nombreJugadaMax;
 
     // 5 dados de 6 caras
     int dados[5];
 
-    // en este array, guardo cuantas veces se repite algun numero de los dados.
+    // array guarda cuantas veces sale algun numero en la tirada.
     int cantidadApariciones[6] = {0};
 
     // tiro los dados
@@ -141,25 +144,51 @@ int main()
     }
     cout << "\n";
 
-    // evalua todo al X y ya paso valor a la variable de puntos.
-    cout << "Todo al 1: " << todoAlX(dados, 1) << "\n";
-    puntos1 = todoAlX(dados, 1);
-    cout << "Todo al 2: " << todoAlX(dados, 2) << "\n";
-    puntos2 = todoAlX(dados, 2);
-    cout << "Todo al 3: " << todoAlX(dados, 3) << "\n";
-    puntos3 = todoAlX(dados, 3);
-    cout << "Todo al 4: " << todoAlX(dados, 4) << "\n";
-    puntos4 = todoAlX(dados, 4);
-    cout << "Todo al 5: " << todoAlX(dados, 5) << "\n";
-    puntos5 = todoAlX(dados, 5);
-    cout << "Todo al 6: " << todoAlX(dados, 6) << "\n";
-    puntos6 = todoAlX(dados, 6);
+    // evalua todo al X y guarda los puntos correspondientes.
+    for (int i = 1; i <= 6; i++)
+    {
+        cout << "Todo al " << i << ": " << todoAlX(dados, i) << "\n";
+        puntos[i] = todoAlX(dados, i);
+    }
+    
+    for (int i = 1; i <= 6; i++)
+    {
+        if (puntos[i] > puntajeMax)
+        {
+            puntajeMax = puntos[i];
+            if (i == 1)
+            {
+                nombreJugadaMax = "Todo al 1";
+            }
+            if (i == 2)
+            {
+                nombreJugadaMax = "Todo al 2";
+            }
+            if (i == 3)
+            {
+                nombreJugadaMax = "Todo al 3";
+            }
+            if (i == 4)
+            {
+                nombreJugadaMax = "Todo al 4";
+            }
+            if (i == 5)
+            {
+                nombreJugadaMax = "Todo al 5";
+            }
+            if (i == 6)
+            {
+                nombreJugadaMax = "Todo al 6";
+            }
+        }
+    }
 
-    // funcion que cuenta las apariciones de los numeros de los dados.
+    // funcion que usa el array cantidadApariciones para contar dichas apariciones.
     contarApariciones(dados, cantidadApariciones);
 
     if (esFull(cantidadApariciones))
     {
+        cout << "Full: 30" << "\n";
         puntosFull = 30;
         if (puntosFull > puntajeMax)
         {
@@ -174,10 +203,13 @@ int main()
 
     if (esPoker(cantidadApariciones))
     {
-        puntosPoker = 40;
-        nombreJugadaMax = "Poker";
-        jugadaMax = true;
         cout << "Poker: 40" << "\n";
+        puntosPoker = 40;
+        if (puntosPoker > puntajeMax)
+        {
+            puntajeMax = puntosPoker;
+            nombreJugadaMax = "Poker";
+        }
     }
     else
     {
@@ -186,10 +218,13 @@ int main()
 
     if (esEscalera(cantidadApariciones))
     {
-        puntosEscalera = 50;
-        nombreJugadaMax = "Escalera";
-        jugadaMax = true;
         cout << "Escalera: 50" << "\n";
+        puntosEscalera = 50;
+        if (puntosEscalera > puntajeMax)
+        {
+            puntajeMax = puntosEscalera;
+            nombreJugadaMax = "Escalera";
+        }
     }
     else
     {
@@ -198,15 +233,20 @@ int main()
 
     if (esGenerala(cantidadApariciones))
     {
-        puntosGenerala = 60;
-        nombreJugadaMax = "Generala";
-        jugadaMax = true;
         cout << "Generala: 60" << "\n";
+        puntosGenerala = 60;
+        if (puntosGenerala > puntajeMax)
+        {
+            puntajeMax = puntosGenerala;
+            nombreJugadaMax = "Generala";
+        }
     }
     else
     {
         cout << "Generala: 0" << "\n";
     }
+
+    cout << "La jugada mas alta fue: " << nombreJugadaMax << " (" << puntajeMax << ")" << "\n";
 
     return 0;
 }
