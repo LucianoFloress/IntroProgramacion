@@ -624,7 +624,7 @@ void palabra(string p, int &a, int &e, int &i, int &o, int &u)
         }
     }
 }
-// funcion con int por referencia. le paso un string por parametro y por cada vocal aumento el contador ++. como es void no hace falta nada mas. En el main, declaro las variables pasado por parametro y referencia. Luego llamo a la funcion y le paso sus parametros, en este caso, la "palabra" y las variables. Luego las muestro a cada una con cout. Es como si en la funcion hace las cuentas, pero se habilita cuando llamo a la funcion en el main, si no no funciona.
+ funcion con int por referencia. le paso un string por parametro y por cada vocal aumento el contador ++. como es void no hace falta nada mas. En el main, declaro las variables pasado por parametro y referencia. Luego llamo a la funcion y le paso sus parametros, en este caso, la "palabra" y las variables. Luego las muestro a cada una con cout. Es como si en la funcion hace las cuentas, pero se habilita cuando llamo a la funcion en el main, si no no funciona.
 int main()
 {
     int a = 0;

@@ -24,34 +24,43 @@ int todoAlX(int dados[], int x)
     return suma;
 }
 
+void calcularTodoAlX(int dados[], int puntos[], int &puntajeMax, string &nombreJugadaMax, string todoAl[])
+{
+    for (int i = 0; i < 6; i++)
+    {
+        puntos[i] = todoAlX(dados, i + 1);
+        cout << "Todo al " << i + 1 << ": " << puntos[i] << "\n";
+        if (puntos[i] > puntajeMax)
+        {
+            puntajeMax = puntos[i];
+            nombreJugadaMax = todoAl[i];
+        }
+    }
+}
+
 void contarApariciones(int dados[], int cantidadApariciones[])
 {
     for (int i = 0; i < 5; i++)
     {
-        if (dados[i] == 1)
+        cantidadApariciones[dados[i] - 1]++;
+    }
+}
+
+void evaluarJugada(bool jugada, string nombreJugada, int puntos, int &puntajeMax, string &nombreJugadaMax)
+{
+
+    if (jugada)
+    {
+        cout << nombreJugada << ": " << puntos << "\n";
+        if (puntos > puntajeMax)
         {
-            cantidadApariciones[0]++;
+            puntajeMax = puntos;
+            nombreJugadaMax = nombreJugada;
         }
-        if (dados[i] == 2)
-        {
-            cantidadApariciones[1]++;
-        }
-        if (dados[i] == 3)
-        {
-            cantidadApariciones[2]++;
-        }
-        if (dados[i] == 4)
-        {
-            cantidadApariciones[3]++;
-        }
-        if (dados[i] == 5)
-        {
-            cantidadApariciones[4]++;
-        }
-        if (dados[i] == 6)
-        {
-            cantidadApariciones[5]++;
-        }
+    }
+    else
+    {
+        cout << nombreJugada << ": 0" << "\n";
     }
 }
 
@@ -123,16 +132,14 @@ void reiniciarApariciones(int cantidadApariciones[])
 int main()
 {
     srand(time(NULL));
-    // array para guardar el puntaje de Todo Al X
     int puntos[6];
     int puntosFull, puntosPoker, puntosEscalera, puntosGenerala;
     int puntajeMaxJugador = 0;
-    string nombreJugadaMax;
+    string nombreJugadaMax = "";
+    string todoAl[6] = {"Todo al 1", "Todo al 2", "Todo al 3", "Todo al 4", "Todo al 5", "Todo al 6"};
 
-    // 5 dados de 6 caras
     int dados[5];
 
-    // tiro los dados
     tirarDados(dados);
     cout << "Tirada jugador: \n";
     for (int i = 0; i < 5; i++)
@@ -145,116 +152,25 @@ int main()
     int cantidadApariciones[6] = {0};
 
     // evalua todo al X y guarda los puntos correspondientes.
-    for (int i = 1; i <= 6; i++)
-    {
-        cout << "Todo al " << i << ": " << todoAlX(dados, i) << "\n";
-        puntos[i] = todoAlX(dados, i);
-    }
+    calcularTodoAlX(dados, puntos, puntajeMaxJugador, nombreJugadaMax, todoAl);
 
-    for (int i = 1; i <= 6; i++)
-    {
-        if (puntos[i] > puntajeMaxJugador)
-        {
-            puntajeMaxJugador = puntos[i];
-            if (i == 1)
-            {
-                nombreJugadaMax = "Todo al 1";
-            }
-            if (i == 2)
-            {
-                nombreJugadaMax = "Todo al 2";
-            }
-            if (i == 3)
-            {
-                nombreJugadaMax = "Todo al 3";
-            }
-            if (i == 4)
-            {
-                nombreJugadaMax = "Todo al 4";
-            }
-            if (i == 5)
-            {
-                nombreJugadaMax = "Todo al 5";
-            }
-            if (i == 6)
-            {
-                nombreJugadaMax = "Todo al 6";
-            }
-        }
-    }
-
-    // funcion que usa el array cantidadApariciones para contar dichas apariciones.
     contarApariciones(dados, cantidadApariciones);
 
-    if (esFull(cantidadApariciones))
-    {
-        cout << "Full: 30" << "\n";
-        puntosFull = 30;
-        if (puntosFull > puntajeMaxJugador)
-        {
-            puntajeMaxJugador = puntosFull;
-            nombreJugadaMax = "Full";
-        }
-    }
-    else
-    {
-        cout << "Full: 0" << "\n";
-    }
+    evaluarJugada(esFull(cantidadApariciones), "Full", 30, puntajeMaxJugador, nombreJugadaMax);
 
-    if (esPoker(cantidadApariciones))
-    {
-        cout << "Poker: 40" << "\n";
-        puntosPoker = 40;
-        if (puntosPoker > puntajeMaxJugador)
-        {
-            puntajeMaxJugador = puntosPoker;
-            nombreJugadaMax = "Poker";
-        }
-    }
-    else
-    {
-        cout << "Poker: 0" << "\n";
-    }
+    evaluarJugada(esPoker(cantidadApariciones), "Poker", 40, puntajeMaxJugador, nombreJugadaMax);
 
-    if (esEscalera(cantidadApariciones))
-    {
-        cout << "Escalera: 50" << "\n";
-        puntosEscalera = 50;
-        if (puntosEscalera > puntajeMaxJugador)
-        {
-            puntajeMaxJugador = puntosEscalera;
-            nombreJugadaMax = "Escalera";
-        }
-    }
-    else
-    {
-        cout << "Escalera: 0" << "\n";
-    }
+    evaluarJugada(esEscalera(cantidadApariciones), "Escalera", 50, puntajeMaxJugador, nombreJugadaMax);
 
-    if (esGenerala(cantidadApariciones))
-    {
-        cout << "Generala: 60" << "\n";
-        puntosGenerala = 60;
-        if (puntosGenerala > puntajeMaxJugador)
-        {
-            puntajeMaxJugador = puntosGenerala;
-            nombreJugadaMax = "Generala";
-        }
-    }
-    else
-    {
-        cout << "Generala: 0" << "\n";
-    }
+    evaluarJugada(esGenerala(cantidadApariciones), "Generala", 60, puntajeMaxJugador, nombreJugadaMax);
 
     cout << "La jugada mas alta fue: " << nombreJugadaMax << " (" << puntajeMaxJugador << ")" << "\n\n";
 
     // TURNO PC
-
     int puntajeMaxPc = 0;
-    // reinicio las apariciones para la PC
+    // reinicio las apariciones si no se acumulan con las del jugador
     reiniciarApariciones(cantidadApariciones);
 
-    // tiro los dados
     tirarDados(dados);
     cout << "Tirada PC: \n";
     for (int i = 0; i < 5; i++)
@@ -263,109 +179,19 @@ int main()
     }
     cout << "\n";
 
-    for (int i = 1; i <= 6; i++)
-    {
-        cout << "Todo al " << i << ": " << todoAlX(dados, i) << "\n";
-        puntos[i] = todoAlX(dados, i);
-    }
-
-    for (int i = 1; i <= 6; i++)
-    {
-        if (puntos[i] > puntajeMaxPc)
-        {
-            puntajeMaxPc = puntos[i];
-            if (i == 1)
-            {
-                nombreJugadaMax = "Todo al 1";
-            }
-            if (i == 2)
-            {
-                nombreJugadaMax = "Todo al 2";
-            }
-            if (i == 3)
-            {
-                nombreJugadaMax = "Todo al 3";
-            }
-            if (i == 4)
-            {
-                nombreJugadaMax = "Todo al 4";
-            }
-            if (i == 5)
-            {
-                nombreJugadaMax = "Todo al 5";
-            }
-            if (i == 6)
-            {
-                nombreJugadaMax = "Todo al 6";
-            }
-        }
-    }
+    calcularTodoAlX(dados, puntos, puntajeMaxPc, nombreJugadaMax, todoAl);
 
     contarApariciones(dados, cantidadApariciones);
 
-    if (esFull(cantidadApariciones))
-    {
-        cout << "Full: 30" << "\n";
-        puntosFull = 30;
-        if (puntosFull > puntajeMaxPc)
-        {
-            puntajeMaxPc = puntosFull;
-            nombreJugadaMax = "Full";
-        }
-    }
-    else
-    {
-        cout << "Full: 0" << "\n";
-    }
+    evaluarJugada(esFull(cantidadApariciones), "Full", 30, puntajeMaxPc, nombreJugadaMax);
 
-    if (esPoker(cantidadApariciones))
-    {
-        cout << "Poker: 40" << "\n";
-        puntosPoker = 40;
-        if (puntosPoker > puntajeMaxPc)
-        {
-            puntajeMaxPc = puntosPoker;
-            nombreJugadaMax = "Poker";
-        }
-    }
-    else
-    {
-        cout << "Poker: 0" << "\n";
-    }
+    evaluarJugada(esPoker(cantidadApariciones), "Poker", 40, puntajeMaxPc, nombreJugadaMax);
 
-    if (esEscalera(cantidadApariciones))
-    {
-        cout << "Escalera: 50" << "\n";
-        puntosEscalera = 50;
-        if (puntosEscalera > puntajeMaxPc)
-        {
-            puntajeMaxPc = puntosEscalera;
-            nombreJugadaMax = "Escalera";
-        }
-    }
-    else
-    {
-        cout << "Escalera: 0" << "\n";
-    }
+    evaluarJugada(esEscalera(cantidadApariciones), "Escalera", 50, puntajeMaxPc, nombreJugadaMax);
 
-    if (esGenerala(cantidadApariciones))
-    {
-        cout << "Generala: 60" << "\n";
-        puntosGenerala = 60;
-        if (puntosGenerala > puntajeMaxPc)
-        {
-            puntajeMaxPc = puntosGenerala;
-            nombreJugadaMax = "Generala";
-        }
-    }
-    else
-    {
-        cout << "Generala: 0" << "\n";
-    }
+    evaluarJugada(esGenerala(cantidadApariciones), "Generala", 60, puntajeMaxPc, nombreJugadaMax);
 
     cout << "La jugada mas alta fue: " << nombreJugadaMax << " (" << puntajeMaxPc << ")" << "\n\n";
-
-    // comparamos y verificamos quien gana
 
     if (puntajeMaxJugador > puntajeMaxPc)
     {
