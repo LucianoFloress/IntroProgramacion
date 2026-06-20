@@ -85,8 +85,6 @@ bool esFull(int cantidadApariciones[])
 
 bool esPoker(int cantidadApariciones[])
 {
-    bool hayCuatro = false;
-
     for (int i = 0; i < 6; i++)
     {
         if (cantidadApariciones[i] == 4)
@@ -119,26 +117,14 @@ bool esEscalera(int cantidadApariciones[])
     return false;
 }
 
-// funciones PC
-
-void reiniciarApariciones(int cantidadApariciones[])
-{
-    for (int i = 0; i < 6; i++)
-    {
-        cantidadApariciones[i] = 0;
-    }
-}
-
 int main()
 {
     srand(time(NULL));
+    int dados[5];
     int puntos[6];
-    int puntosFull, puntosPoker, puntosEscalera, puntosGenerala;
     int puntajeMaxJugador = 0;
     string nombreJugadaMax = "";
     string todoAl[6] = {"Todo al 1", "Todo al 2", "Todo al 3", "Todo al 4", "Todo al 5", "Todo al 6"};
-
-    int dados[5];
 
     tirarDados(dados);
     cout << "Tirada jugador: \n";
@@ -169,7 +155,10 @@ int main()
     // TURNO PC
     int puntajeMaxPc = 0;
     // reinicio las apariciones si no se acumulan con las del jugador
-    reiniciarApariciones(cantidadApariciones);
+    for (int i = 0; i < 6; i++)
+    {
+        cantidadApariciones[i] = 0;
+    }
 
     tirarDados(dados);
     cout << "Tirada PC: \n";
