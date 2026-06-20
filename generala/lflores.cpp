@@ -2,6 +2,7 @@
 #include <string>
 using namespace std;
 
+// funciones jugador
 void tirarDados(int dados[])
 {
     for (int i = 0; i < 5; i++)
@@ -10,7 +11,7 @@ void tirarDados(int dados[])
     }
 }
 
-int sumaTodoAlX(int dados[], int x)
+int todoAlX(int dados[], int x)
 {
     int suma = 0;
     for (int i = 0; i < 5; i++)
@@ -27,7 +28,7 @@ void calcularTodoAlX(int dados[], int puntos[], int &puntajeMax, string &nombreJ
 {
     for (int i = 0; i < 6; i++)
     {
-        puntos[i] = sumaTodoAlX(dados, i + 1);
+        puntos[i] = todoAlX(dados, i + 1);
         cout << "Todo al " << i + 1 << ": " << puntos[i] << "\n";
         if (puntos[i] > puntajeMax)
         {
@@ -96,6 +97,7 @@ bool esPoker(int cantidadApariciones[])
 
 bool esGenerala(int cantidadApariciones[])
 {
+
     for (int i = 0; i < 6; i++)
     {
         if (cantidadApariciones[i] == 5)
