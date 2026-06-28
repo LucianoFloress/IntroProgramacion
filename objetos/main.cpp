@@ -38,21 +38,28 @@ using namespace std;
 class Armadura
 {
     // atriutos
-public:
-    int resistencia = 100;
+    int resistencia;
+    public:
     // metodos
     void recibirDanio(int danio);
+
+    // constructor
+    Armadura();
 };
 
 void Armadura::recibirDanio(int danio)
 {
-    resistencia = -danio;
+    resistencia -= danio;
 };
+
+Armadura::Armadura()
+{
+    resistencia = 100;
+}
 
 int main()
 {
     Armadura juego;
-
     juego.recibirDanio(20);
 
     return 0;
