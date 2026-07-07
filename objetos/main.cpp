@@ -40,38 +40,38 @@ class Armadura
 {
     // atriutos
     int resistencia;
+    string nombrePJ;
 
 public:
     // metodos
     void recibirDanio(int danio);
     void mostrar();
-
     // constructor
-    Armadura();
+    Armadura(string nombre);
 };
 
 void Armadura::recibirDanio(int danio)
 {
     resistencia -= danio;
-};
-
-Armadura::Armadura()
-{
-    resistencia = 100;
 }
 
 void Armadura::mostrar()
 {
     cout << resistencia;
+    cout << nombrePJ;
+}
+
+Armadura::Armadura(string nombre)
+{
+    nombrePJ = nombre;
+    resistencia = 100;
 }
 
 int main()
 {
-    Armadura juego;
-    juego.recibirDanio(20);
-
+    Armadura juego("lucho");
+    juego.recibirDanio(120);
     juego.mostrar();
-
     return 0;
 }
 */
@@ -151,7 +151,34 @@ int main()
     return 0;
 }
 */
-/*ejercicio 4*/
+/* ejercicio 4 PELOTA REBOTANDO REBOTE
+modificar tasks.json para que ejecute la pelotita rebotando
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "Build & Run Raylib",
+            "type": "shell",
+            "command": "g++",
+            "args": [
+                "main.cpp",
+                "-o",
+                "main.exe",
+                "-lraylib",
+                "-lopengl32",
+                "-lgdi32",
+                "-lwinmm",
+                "&&",
+                "./main.exe"
+            ],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            }
+        }
+    ]
+}
+
 #include "raylib.h"
 #include <iostream>
 
@@ -162,18 +189,16 @@ class Pelota
 {
     // atributos
     float x, y;
-
     float vx, vy;
-
     int radio;
     // metodos
 public:
     void mover();
-    int getX();
-    int getY();
+    float getX();
+    float getY();
     int getRadio();
     // constructor
-    Pelota(int x, int y, float vx, float vy, int radio);
+    Pelota(float x, float y, int radio, float vx, float vy);
 };
 
 void Pelota::mover()
@@ -195,22 +220,11 @@ void Pelota::mover()
     }
 }
 
-Pelota::Pelota(int xi, int yi, float vxi, float vyi, int radioi)
-{
-    x = xi;
-    y = yi;
-
-    vx = vxi;
-    vy = vyi;
-
-    radio = radioi;
-}
-
-int Pelota::getX()
+float Pelota::getX()
 {
     return x;
 }
-int Pelota::getY()
+float Pelota::getY()
 {
     return y;
 }
@@ -219,12 +233,21 @@ int Pelota::getRadio()
     return radio;
 }
 
+Pelota::Pelota(float xi, float yi, int radioi, float vxi, float vyi)
+{
+    x = xi;
+    y = yi;
+    radio = radioi;
+    vx = vxi;
+    vy = vyi;
+}
+
 int main()
 {
 
     InitWindow(ANCHO, ALTO, "Pelota rebotando");
     SetTargetFPS(60);
-    Pelota Juego(400, 300, 4, 3, 20);
+    Pelota Juego(400, 300, 20, 4, 3);
 
     while (!WindowShouldClose())
     {
@@ -241,5 +264,145 @@ int main()
 
     CloseWindow();
 
+    return 0;
+}
+*/
+/*Ejercicio 1 chatgpt
+#include <iostream>
+#include <string>
+using namespace std;
+
+class Perro{
+    //atributos
+    string nombre;
+    int edad;
+
+    public:
+    //metodos
+    void ladrar();
+    void mostrarDatos();
+    void setNombre(string nuevoNombre);
+    void setEdad(int nuevaEdad);
+    //constructor
+    Perro(string nombreP, int edadP);
+};
+
+void Perro::ladrar(){
+    cout << "Guau guau" << "\n";
+}
+
+void Perro::mostrarDatos(){
+    cout << nombre << ", " << edad << "\n";;
+}
+
+void Perro::setNombre(string nuevoNombre){
+    nombre = nuevoNombre;
+}
+
+void Perro::setEdad(int edadNueva){
+    edad = edadNueva;
+}
+
+Perro::Perro(string nombreP, int edadP){
+    nombre = nombreP;
+    edad = edadP;
+}
+
+int main()
+{
+    Perro perrito("Pelusa", 14);
+    perrito.mostrarDatos();
+    perrito.ladrar();
+    perrito.setEdad(10);
+    perrito.setNombre("Zoe");
+    perrito.mostrarDatos();
+    perrito.ladrar();
+
+    return 0;
+}
+*/
+/*ejer 2
+#include <iostream>
+#include <string>
+using namespace std;
+
+class Lampara
+{
+    // a
+    bool estado;
+
+public:
+    // m
+    void encender();
+    void apagar();
+    void estaEncendida();
+    // c
+    Lampara();
+};
+
+void Lampara::encender()
+{
+    estado = true;
+}
+
+void Lampara::apagar()
+{
+    estado = false;
+}
+
+void Lampara::estaEncendida()
+{
+    if (estado)
+    {
+        cout << "Esta encendida" << "\n";
+    }
+    else
+    {
+        cout << "Esta apagada" << "\n";
+    }
+}
+
+Lampara::Lampara()
+{
+    estado = false;
+}
+
+int main()
+{
+    Lampara lampara;
+    lampara.estaEncendida();
+    lampara.encender();
+    lampara.estaEncendida();
+
+    return 0;
+}
+*/
+#include <iostream>
+#include <string>
+    using namespace std;
+
+class cuentaBancaria
+{
+    // a
+    string titular;
+    int saldo;
+
+public:
+    // m
+    void depositar();
+    void retirar();
+    void mostrarSaldo();
+    // c
+    cuentaBancaria(string quienRecibe, int saldo);
+};
+
+cuentaBancaria::cuentaBancaria(string quienRecibe, int saldo0)
+{
+    titular = quienRecibe;
+    saldo = saldo0;
+}
+
+int maint()
+{
     return 0;
 }
