@@ -377,9 +377,10 @@ int main()
     return 0;
 }
 */
+/* ejercicio 3
 #include <iostream>
 #include <string>
-    using namespace std;
+using namespace std;
 
 class cuentaBancaria
 {
@@ -389,12 +390,27 @@ class cuentaBancaria
 
 public:
     // m
-    void depositar();
-    void retirar();
+    void depositar(int saldoADepositar);
+    void retirar(int saldoARetirar);
     void mostrarSaldo();
     // c
     cuentaBancaria(string quienRecibe, int saldo);
 };
+
+void cuentaBancaria::depositar(int saldoADepositar)
+{
+    saldo += saldoADepositar;
+}
+
+void cuentaBancaria::retirar(int saldoARetirar)
+{
+    saldo -= saldoARetirar;
+}
+
+void cuentaBancaria::mostrarSaldo()
+{
+    cout << titular << ", " << saldo << "\n";
+}
 
 cuentaBancaria::cuentaBancaria(string quienRecibe, int saldo0)
 {
@@ -402,7 +418,13 @@ cuentaBancaria::cuentaBancaria(string quienRecibe, int saldo0)
     saldo = saldo0;
 }
 
-int maint()
+int main()
 {
+    cuentaBancaria banco("Lucho", 0);
+    banco.mostrarSaldo();
+    banco.depositar(565413);
+    banco.mostrarSaldo();
+
     return 0;
 }
+*/
