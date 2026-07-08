@@ -428,3 +428,34 @@ int main()
     return 0;
 }
 */
+#include <iostream>
+#include <string>
+using namespace std;
+
+class Auto{
+    //a
+    string marca;
+    int velocidad;
+    public:
+    //m
+    int acelerar();
+    int frenar();
+    void mostrarVelocidad();
+    //c
+    Auto(string marcaM, int velocidadI);
+};
+
+int Auto::acelerar(){
+    
+}
+
+Auto::Auto(string marcaM, int velocidadI){
+    marca = marcaM;
+    velocidad = velocidadI;
+}
+
+int main()
+{
+    Auto automovil("Fiat Uno", 0);
+    return 0;
+}
